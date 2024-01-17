@@ -1,9 +1,14 @@
-# Finetuning an LLM for Haitian Creole
+# Finetuning an LLM on Haitian Creole Datasets
+
+## Background
+
+
 ## Objective
 Finetune an open-source large language model on Haitian Creole datasets, to improve the conversational performance of the LLM.
 
-## Model
+## Data
 
+## Model
 
 ##
 
