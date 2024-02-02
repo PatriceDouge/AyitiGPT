@@ -10,6 +10,8 @@ Finetune an open-source large language model on Haitian Creole datasets, to impr
 
 ## Model
 
+## Evaluation
+
 ##
 
 ## Resources
