@@ -1,9 +1,7 @@
 import json
 
 def build_dataset(file_path, output_path):
-    translations = []  # Initialize an empty list to hold the dictionaries
-
-    with open(file_path, 'r', encoding='utf-8') as file:
+    with open(file_path, 'r', encoding='utf-8') as file, open(output_path, 'w', encoding='utf-8') as jsonl_file:
         while True:
             english_text = file.readline().strip()
             # Skip any empty lines for the English text
@@ -30,19 +28,12 @@ def build_dataset(file_path, output_path):
                 "output": creole_translation
             }
 
-            # Append the dictionary to the list
-            translations.append(translation_dict)
-
-    # Convert the list to a JSON string
-    json_output = json.dumps(translations, indent=4)
-
-    # Save the JSON string to a file
-    with open(output_path, 'w', encoding='utf-8') as json_file:
-        json_file.write(json_output)
+            # Write the dictionary to the JSONL file, converting it to a JSON string with a newline character
+            jsonl_file.write(json.dumps(translation_dict) + '\n')
 
 def main():
     # Replace 'translations.txt' and 'output.json' with the actual paths
-    build_dataset('../data/medical_domain_data_ht.txt', 'alpaca_ht.json')
+    build_dataset('../data/medical_domain_data_ht.txt', 'alpaca_ht.jsonl')
 
 if __name__ == '__main__':
     main()
